@@ -1,40 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOUJR - Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apoia.se - SouJunior</title>
+  
+  <!-- Tailwind CSS via CDN (Para não precisar de Node.js ou instalação complicada) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Configuração das cores do Tailwind (fácil de explicar) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            roxo: '#6b21a8',
+            amarelo: '#f59e0b',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- React e ReactDOM via CDN (Para funcionar no Live Server na porta 5500) -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <!-- Babel via CDN (Para o navegador entender o código JSX do React) -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">SOUJR</div>
-            <ul class="nav-links">
-                <li><a href="#home">Início</a></li>
-                <li><a href="#about">Sobre</a></li>
-                <li><a href="#contact">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="bg-gray-50 text-gray-900">
 
-    <main>
-        <section id="home" class="hero">
-            <h1>Bem-vindo ao SOUJR</h1>
-            <p>Sua nova landing page incrível começa aqui.</p>
-            <button class="cta-button">Saiba Mais</button>
-        </section>
+  <!-- A div onde o React vai injetar o nosso site -->
+  <div id="root"></div>
 
-        <section id="about" class="about">
-            <h2>Sobre o Projeto</h2>
-            <p>Esta é uma landing page inicial criada e vinculada ao seu repositório Git.</p>
-        </section>
-    </main>
+  <!-- Nosso código React fica aqui dentro -->
+  <script type="text/babel">
+    function App() {
+      return (
+        <div>
+          {/* Seção 1: O Banner Principal (Hero) */}
+          <section className="bg-roxo text-white py-20 text-center px-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              Transforme Vidas com a SouJunior
+            </h1>
+            <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-gray-200">
+              Ajude a manter nossas mentorias e projetos gratuitos para profissionais de tecnologia em início de carreira.
+            </p>
+            <a 
+              href="https://apoia.se/soujunior" 
+              target="_blank" 
+              className="bg-amarelo text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-yellow-600 transition"
+            >
+              Apoiar Agora (A partir de R$ 2)
+            </a>
+          </section>
 
-    <footer>
-        <p>&copy; 2026 SOUJR. Todos os direitos reservados.</p>
-    </footer>
+          {/* Seção 2: O Propósito (Por que apoiar) */}
+          <section className="py-16 px-4 max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-center text-roxo mb-8">Por que nos apoiar?</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white p-6 rounded-lg shadow">
+                <h3 className="text-xl font-bold mb-2">Mentorias Gratuitas</h3>
+                <p className="text-gray-600">Com o seu apoio, conseguimos manter a estrutura para conectar juniores a profissionais experientes.</p>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow">
+                <h3 className="text-xl font-bold mb-2">Projetos Open-Source</h3>
+                <p className="text-gray-600">Sustentamos a infraestrutura para que juniores ganhem experiência prática codando em equipe.</p>
+              </div>
+            </div>
+          </section>
 
-    <script src="script.js"></script>
+          {/* Seção 3: Impacto (Transparência) */}
+          <section className="bg-gray-200 py-16 px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl font-bold text-roxo mb-8">Nosso Impacto</h2>
+              <div className="flex flex-wrap justify-center gap-8">
+                <div className="bg-white p-6 rounded-lg shadow w-48">
+                  <h4 className="text-4xl font-bold text-roxo">+15k</h4>
+                  <p className="text-gray-600 mt-2">Pessoas Impactadas</p>
+                </div>
+                <div className="bg-white p-6 rounded-lg shadow w-48">
+                  <h4 className="text-4xl font-bold text-roxo">+50</h4>
+                  <p className="text-gray-600 mt-2">Repositórios</p>
+                </div>
+                <div className="bg-white p-6 rounded-lg shadow w-48">
+                  <h4 className="text-4xl font-bold text-roxo">+200</h4>
+                  <p className="text-gray-600 mt-2">Voluntários</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Seção 4: Rodapé com Links da Comunidade */}
+          <footer className="bg-gray-900 text-white py-8 text-center">
+            <p className="mb-4">Faça parte do nosso ecossistema:</p>
+            <div className="flex justify-center gap-4 mb-4">
+              <a href="https://discord.gg/FkBcf3vdQZ" target="_blank" className="text-gray-400 hover:text-white">Discord</a>
+              <span>|</span>
+              <a href="https://chat.whatsapp.com/JJzCMlqMKlw1YOhOk7QB3W" target="_blank" className="text-gray-400 hover:text-white">WhatsApp</a>
+              <span>|</span>
+              <a href="https://github.com/SouJunior" target="_blank" className="text-gray-400 hover:text-white">GitHub</a>
+            </div>
+            <p className="text-sm text-gray-500">&copy; 2026 SouJunior. Feito pela comunidade.</p>
+          </footer>
+        </div>
+      );
+    }
+
+    // Renderiza o App dentro da div #root
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
 </body>
 </html>
