@@ -1,17 +1,20 @@
-/* Carrega o Tailwind CSS instalado no projeto durante o build do Vite. */
+/* Carrega a fonte de títulos e o Tailwind CSS instalado no projeto. */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 @import "tailwindcss";
 
-/* Registra as cores próprias usadas pelas classes bg-roxo e bg-amarelo. */
+/* Cores nomeadas deixam o design fácil de explicar e manter. */
 @theme {
-  --color-roxo: #6b21a8;
-  --color-amarelo: #f59e0b;
+  --color-ink: #17211f;
+  --color-paper: #f5f1e9;
+  --color-coral: #f26f51;
+  --color-mint: #c9d9c9;
 }
 
-/* Define os valores visuais básicos compartilhados pela aplicação. */
+/* Fonte expressiva para títulos e fonte neutra para textos de apoio. */
 :root {
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-  color: #111827;
-  background: #f9fafb;
+  font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  color: #17211f;
+  background: #f5f1e9;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
 }
@@ -19,6 +22,11 @@
 /* Mantém o cálculo de largura e altura previsível em todos os elementos. */
 * {
   box-sizing: border-box;
+}
+
+/* Cria uma rolagem suave para os links de navegação por âncora. */
+html {
+  scroll-behavior: smooth;
 }
 
 /* Remove o espaçamento padrão do navegador e evita layouts menores que o mobile. */
@@ -30,4 +38,20 @@ body {
 /* Os links usam o estilo das classes Tailwind, sem sublinhado padrão. */
 a {
   text-decoration: none;
+}
+
+/* Estilo repetido dos marcadores de categoria das seções. */
+.eyebrow {
+  color: rgb(23 33 31 / 0.5);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+/* Melhora o foco de teclado sem alterar o visual dos links em repouso. */
+:focus-visible {
+  outline: 3px solid #f26f51;
+  outline-offset: 4px;
 }
