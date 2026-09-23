@@ -1,99 +1,276 @@
-// Links principais usados pela navegacao fixa da landing page.
-const navigation = [
-  ['A causa', '#causa'],
-  ['Como funciona', '#jornada'],
-  ['Impacto', '#impacto'],
-  ['Dúvidas', '#duvidas'],
-]
+const navItems = [
+  { label: 'Causa', href: '#causa' },
+  { label: 'Impacto', href: '#impacto' },
+  { label: 'Transparência', href: '#transparencia' },
+  { label: 'Apoio', href: '#apoio' },
+];
 
-// As tres etapas deixam a proposta facil de entender durante uma apresentacao.
-const journey = [
-  { number: '01', title: 'Chegue com uma dúvida', description: 'Você entra na comunidade mesmo sem saber exatamente qual deve ser o próximo passo.' },
-  { number: '02', title: 'Construa com apoio', description: 'Mentores e outros juniores compartilham repertório, feedback e caminhos possíveis.' },
-  { number: '03', title: 'Mostre o que aprendeu', description: 'Cada projeto vira prática, portfólio e confiança para buscar novas oportunidades.' },
-]
+const cards = [
+  {
+    title: 'Apoio comunitário',
+    text: 'Criamos acolhimento e orientação para pessoas que precisam de apoio e direção.',
+  },
+  {
+    title: 'Educação e oportunidade',
+    text: 'Fomentamos aprendizado, autonomia e acesso a caminhos mais promissores.',
+  },
+  {
+    title: 'Mobilização coletiva',
+    text: 'Conectamos pessoas, parceiros e ações para transformar a comunidade com impacto real.',
+  },
+];
 
-// Trilhas de atuacao apresentadas como cards, sem depender de um back-end.
-const tracks = [
-  ['01', 'Produto & UX', 'Aprenda a transformar problemas reais em experiencias mais simples.', '36 encontros'],
-  ['02', 'Desenvolvimento', 'Pratique codigo em projetos colaborativos e revisoes de pull request.', '18 squads'],
-  ['03', 'Carreira', 'Organize seu portfolio, sua apresentacao e seus proximos movimentos.', 'Aberto sempre'],
-]
+const stats = [
+  { value: '850+', label: 'famílias apoiadas' },
+  { value: '40', label: 'parcerias ativas' },
+  { value: '14', label: 'campanhas realizadas' },
+];
 
-// Depoimentos curtos ajudam a tornar o resultado da comunidade mais concreto.
-const testimonials = [
-  ['“Eu parei de estudar sozinho e comecei a construir com intenção.”', 'Marina Alves', 'Front-end junior'],
-  ['“O primeiro projeto do meu portfólio nasceu dentro de uma squad.”', 'Caio Nunes', 'Product designer junior'],
-]
+const planos = [
+  { name: 'Apoio Mensal', price: 'R$ 29', description: 'Ajude a manter campanhas e atendimento contínuo.', featured: false },
+  { name: 'Patrocínio Parceiro', price: 'R$ 99', description: 'Apoie projetos com maior alcance e presença ativa.', featured: true },
+  { name: 'Apoio Especial', price: 'R$ 249', description: 'Contribua para iniciativas estratégicas com maior impacto.', featured: false },
+];
 
-// Perguntas frequentes resolvidas com o elemento nativo details, sem estado extra.
-const faqs = [
-  ['Preciso já saber programar?', 'Não. A comunidade acolhe quem está começando e ajuda você a descobrir uma trilha possível.'],
-  ['Como o apoio é utilizado?', 'Ele ajuda a manter ferramentas, encontros, organização dos projetos e espaços gratuitos para a comunidade.'],
-  ['Posso participar como mentor?', 'Sim. Pessoas com experiência podem contribuir com encontros, revisões, conteúdo e orientação de carreira.'],
-]
-
-// Componente raiz da experiencia publica da SouJunior.
 function App() {
   return (
-    <main className="overflow-hidden bg-paper text-ink">
-      {/* Navegacao: ancora o visitante nas partes principais da apresentacao. */}
-      <header className="absolute inset-x-0 top-0 z-20">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-6 lg:px-8">
-          <a href="#inicio" className="flex items-center gap-3 text-sm font-bold tracking-[0.16em] text-white"><span className="grid size-9 place-items-center rounded-full bg-coral text-sm text-ink">SJ</span>SOU<span className="text-coral">JUNIOR</span></a>
-          <nav className="hidden items-center gap-8 text-sm text-white/70 md:flex" aria-label="Navegacao principal">
-            {navigation.map(([label, href]) => <a key={href} href={href} className="transition hover:text-white">{label}</a>)}
+    <div className="min-h-screen bg-[#f5f4ef] text-slate-800">
+      <header className="border-b border-slate-200 bg-[#f5f4ef]/90 backdrop-blur-sm">
+        <div className="section-shell flex items-center justify-between py-4">
+          <a href="#inicio" className="flex items-center gap-3" aria-label="Página inicial">
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-900 text-base font-bold text-white">
+              SJ
+            </div>
+            <div>
+              <div className="text-[10px] font-bold uppercase tracking-[0.25em] text-amber-700">SOUJR</div>
+              <div className="text-sm text-slate-600">Ação e transformação</div>
+            </div>
+          </a>
+
+          <nav aria-label="Menu principal" className="hidden items-center gap-7 md:flex">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="text-sm font-medium text-slate-700 transition hover:text-slate-950"
+              >
+                {item.label}
+              </a>
+            ))}
           </nav>
-          <a href="https://apoia.se/soujunior" target="_blank" rel="noreferrer" className="rounded-full border border-white/25 px-4 py-2 text-xs font-bold uppercase tracking-[0.12em] text-white transition hover:border-coral hover:bg-coral hover:text-ink">Apoiar a causa</a>
+
+          <a
+            href="#apoio"
+            className="inline-flex items-center justify-center rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-700"
+          >
+            Apoie agora
+          </a>
         </div>
       </header>
 
-      {/* 01. Hero: apresenta o movimento com uma composicao editorial e visual. */}
-      <section id="inicio" className="relative isolate min-h-[760px] bg-ink text-white">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_76%_26%,rgba(242,111,81,0.28),transparent_27%),linear-gradient(115deg,#17211f_0%,#1f302b_54%,#345049_100%)]" />
-        <div className="absolute right-[-11rem] top-32 -z-10 size-[32rem] rounded-full border border-white/10 lg:right-[-7rem]" />
-        <div className="mx-auto grid min-h-[760px] max-w-7xl items-center gap-14 px-5 pb-16 pt-32 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:pb-20">
-          <div className="max-w-2xl">
-            <p className="mb-6 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.24em] text-coral"><span className="h-px w-10 bg-coral" /> Comunidade para quem esta comecando</p>
-            <h1 className="max-w-3xl text-5xl font-bold leading-[0.98] tracking-[-0.05em] sm:text-7xl lg:text-[5.4rem]">Seu comeco pode ser <span className="text-coral">coletivo.</span></h1>
-            <p className="mt-8 max-w-lg text-lg leading-8 text-white/65">A SouJunior transforma estudo solitario em pratica compartilhada, com mentorias, projetos reais e gente caminhando na mesma direcao.</p>
-            <div className="mt-10 flex flex-wrap items-center gap-4"><a href="https://apoia.se/soujunior" target="_blank" rel="noreferrer" className="rounded-full bg-coral px-6 py-3.5 text-sm font-bold text-ink transition hover:-translate-y-0.5 hover:bg-[#ff8a6f]">Quero fazer parte <span aria-hidden="true">↗</span></a><a href="#jornada" className="rounded-full border border-white/20 px-6 py-3.5 text-sm font-bold text-white transition hover:border-white/60">Entender o projeto</a></div>
-            <p className="mt-10 text-xs uppercase tracking-[0.18em] text-white/35">Uma comunidade aberta desde 2020</p>
+      <main>
+        <section id="inicio" className="section-shell grid gap-12 py-16 md:grid-cols-[1.1fr_0.9fr] md:items-center md:py-20">
+          <div>
+            <span className="mb-5 inline-flex rounded-full border border-amber-200 bg-amber-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-800">
+              Transformação social
+            </span>
+
+            <h1 className="max-w-xl text-4xl font-black leading-tight text-slate-900 md:text-6xl">
+              A força da comunidade em favor de quem precisa.
+            </h1>
+
+            <p className="mt-5 max-w-lg text-lg leading-8 text-slate-600">
+              A SOUJR conecta pessoas, ideias e apoio para transformar realidades e gerar impacto em ações sociais, educação e fortalecimento comunitário.
+            </p>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#causa"
+                className="inline-flex items-center justify-center rounded-full bg-amber-500 px-6 py-3 text-base font-semibold text-slate-900 shadow-lg shadow-amber-200 transition hover:bg-amber-400"
+              >
+                Conheça a causa
+              </a>
+              <a
+                href="#apoio"
+                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-base font-semibold text-slate-800 transition hover:border-slate-400 hover:bg-slate-50"
+              >
+                Seja apoiador
+              </a>
+            </div>
           </div>
 
-          {/* O cartao sobreposto funciona como uma previa visual do ecossistema. */}
-          <div className="relative mx-auto w-full max-w-[510px] lg:ml-auto"><div className="absolute -left-5 top-10 hidden rounded-2xl border border-white/15 bg-white/10 px-4 py-3 backdrop-blur md:block"><p className="text-[10px] uppercase tracking-[0.18em] text-white/50">Proxima atividade</p><p className="mt-1 text-sm font-bold">Portfolio review <span className="ml-2 text-coral">• hoje</span></p></div><div className="overflow-hidden rounded-[2rem] border border-white/15 bg-[#f7f2e9] p-3 shadow-2xl shadow-black/20"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=85" alt="Pessoas colaborando em uma mesa de trabalho" className="h-64 w-full rounded-[1.4rem] object-cover grayscale-[20%]" /><div className="grid grid-cols-[1fr_auto] gap-4 p-5 text-ink"><div><p className="text-xs font-bold uppercase tracking-[0.16em] text-ink/45">Na pratica</p><h2 className="mt-2 text-2xl font-bold tracking-tight">Aprender fazendo.</h2></div><span className="self-end rounded-full bg-mint px-3 py-1 text-xs font-bold text-ink">+ impacto</span></div><div className="flex items-end justify-between border-t border-ink/10 px-5 pb-2 pt-4"><div className="flex -space-x-2"><span className="grid size-8 place-items-center rounded-full border-2 border-paper bg-[#dd9f7e] text-xs font-bold">MA</span><span className="grid size-8 place-items-center rounded-full border-2 border-paper bg-[#8ea99d] text-xs font-bold">CN</span><span className="grid size-8 place-items-center rounded-full border-2 border-paper bg-[#d4c075] text-xs font-bold">+4</span></div><p className="text-xs font-bold text-ink/50">Squad aberta</p></div></div></div>
+          <div className="relative">
+            <div className="absolute -left-8 top-10 h-36 w-36 rounded-full bg-amber-300/40 blur-3xl" aria-hidden="true" />
+            <div className="absolute -right-6 bottom-6 h-36 w-36 rounded-full bg-emerald-300/40 blur-3xl" aria-hidden="true" />
+
+            <div className="relative rounded-[28px] border border-slate-200 bg-white p-5 shadow-[0_24px_80px_rgba(15,23,42,0.08)]">
+              <div className="rounded-[24px] bg-gradient-to-br from-slate-900 via-slate-800 to-amber-500 p-6 text-white">
+                <div className="flex items-center justify-between gap-4">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-amber-200">
+                    Impacto em ação
+                  </span>
+                  <span className="rounded-full bg-white/10 px-2 py-1 text-[10px] font-medium text-white/90">
+                    2026
+                  </span>
+                </div>
+
+                <div className="mt-10">
+                  <p className="text-sm uppercase tracking-[0.2em] text-slate-200">Metas em curso</p>
+                  <p className="mt-3 text-4xl font-black">+350</p>
+                  <p className="mt-2 text-sm text-slate-200">ações e iniciativas em mobilização</p>
+                </div>
+
+                <div className="mt-8 grid gap-3 sm:grid-cols-3">
+                  {stats.map((item) => (
+                    <div key={item.label} className="rounded-2xl bg-white/8 p-3">
+                      <p className="text-xl font-black text-amber-200">{item.value}</p>
+                      <p className="mt-1 text-[10px] leading-4 text-slate-200">{item.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="causa" className="bg-white py-20">
+          <div className="section-shell">
+            <div className="mx-auto max-w-2xl text-center">
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-700">Nossa causa</p>
+              <h2 className="mt-4 text-3xl font-black text-slate-900 md:text-5xl">
+                Mais acesso, mais oportunidades e mais dignidade.
+              </h2>
+            </div>
+
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              {cards.map((item) => (
+                <article key={item.title} className="rounded-[28px] border border-slate-200 bg-slate-50 p-7">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-xl font-bold text-amber-700">
+                    •
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900">{item.title}</h3>
+                  <p className="mt-4 text-base leading-7 text-slate-600">{item.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="impacto" className="section-shell py-20">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-700">Impacto</p>
+              <h2 className="mt-4 text-3xl font-black text-slate-900 md:text-5xl">
+                Resultados construídos com presença real.
+              </h2>
+              <p className="mt-5 text-lg leading-8 text-slate-600">
+                A SOUJR atua para fortalecer comunidades, ampliar oportunidades e criar caminhos de acolhimento e transformação.
+              </p>
+            </div>
+
+            <div className="grid gap-5 sm:grid-cols-2">
+              {[
+                ['850+', 'famílias apoiadas'],
+                ['320', 'moradores alcançados'],
+                ['40', 'parcerias ativas'],
+                ['14', 'campanhas realizadas'],
+              ].map(([value, label]) => (
+                <div key={label} className="rounded-[26px] border border-slate-200 bg-white p-6 shadow-sm">
+                  <p className="text-4xl font-black text-slate-900">{value}</p>
+                  <p className="mt-2 text-sm uppercase tracking-[0.12em] text-slate-500">{label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="transparencia" className="bg-slate-900 py-20 text-white">
+          <div className="section-shell">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-300">Transparência</p>
+              <h2 className="mt-4 text-3xl font-black md:text-5xl">Acompanhamento claro em cada etapa.</h2>
+            </div>
+
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              {[
+                ['Relatórios acessíveis', 'Dados e avanços apresentados de forma simples e compreensível.'],
+                ['Decisões compartilhadas', 'Tudo é construído com clareza, responsabilidade e comunicação aberta.'],
+                ['Uso responsável', 'Cada recurso é pensado para gerar maior impacto com boa gestão.'],
+              ].map(([title, text]) => (
+                <div key={title} className="rounded-[28px] border border-white/10 bg-white/5 p-7">
+                  <h3 className="text-2xl font-bold">{title}</h3>
+                  <p className="mt-4 text-base leading-7 text-slate-300">{text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="apoio" className="section-shell py-20">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-700">Planos de apoio</p>
+            <h2 className="mt-4 text-3xl font-black text-slate-900 md:text-5xl">Escolha um jeito de apoiar.</h2>
+          </div>
+
+          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+            {planos.map((plan) => (
+              <article
+                key={plan.name}
+                className={[
+                  'rounded-[30px] border p-7 shadow-sm',
+                  plan.featured ? 'border-amber-300 bg-amber-50' : 'border-slate-200 bg-white',
+                ].join(' ')}
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <h3 className="text-2xl font-bold text-slate-900">{plan.name}</h3>
+                  {plan.featured && (
+                    <span className="rounded-full bg-amber-500 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-900">
+                      Popular
+                    </span>
+                  )}
+                </div>
+
+                <div className="mt-6 flex items-end gap-2">
+                  <span className="text-4xl font-black text-slate-900">{plan.price}</span>
+                  <span className="pb-1 text-sm text-slate-500">/mês</span>
+                </div>
+
+                <p className="mt-5 text-base leading-7 text-slate-600">{plan.description}</p>
+
+                <a
+                  href="#contato"
+                  className={[
+                    'mt-8 inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-base font-semibold transition',
+                    plan.featured
+                      ? 'bg-slate-900 text-white hover:bg-slate-700'
+                      : 'border border-slate-300 bg-white text-slate-800 hover:bg-slate-50',
+                  ].join(' ')}
+                >
+                  Escolher plano
+                </a>
+              </article>
+            ))}
+          </div>
+        </section>
+      </main>
+
+      <footer id="contato" className="border-t border-slate-200 bg-[#f5f4ef]">
+        <div className="section-shell flex flex-col gap-6 py-10 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-700">SOUJR</p>
+            <p className="mt-2 max-w-md text-slate-600">Apoiar ações que ampliam oportunidades, fortalecimento e transformação social.</p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-4 text-sm font-medium text-slate-600">
+            <a href="#causa" className="transition hover:text-slate-900">Causa</a>
+            <a href="#impacto" className="transition hover:text-slate-900">Impacto</a>
+            <a href="#transparencia" className="transition hover:text-slate-900">Transparência</a>
+            <a href="#apoio" className="transition hover:text-slate-900">Apoio</a>
+          </div>
         </div>
-      </section>
-
-      {/* 02. Faixa de confianca: cria ritmo e resume o tamanho da rede. */}
-      <section className="border-b border-ink/10 bg-coral px-5 py-5 text-ink"><div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 text-xs font-bold uppercase tracking-[0.15em] lg:px-3"><span>+15 mil pessoas impactadas</span><span className="hidden text-ink/40 sm:inline">✦</span><span>+50 projetos publicados</span><span className="hidden text-ink/40 sm:inline">✦</span><span>+200 voluntarios ativos</span></div></section>
-
-      {/* 03. A causa: explica o problema sem transformar a pagina em um texto longo. */}
-      <section id="causa" className="bg-paper px-5 py-24 lg:px-8 lg:py-36"><div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:items-end"><div><p className="eyebrow">02 / A causa</p><h2 className="mt-5 max-w-xl text-4xl font-bold leading-tight tracking-[-0.04em] md:text-6xl">Comecar na tecnologia nao deveria parecer um labirinto.</h2></div><div className="max-w-xl lg:pb-2"><p className="text-xl leading-8 text-ink/65">Existe talento em todo lugar. O que falta, muitas vezes, e acesso: a uma conversa honesta, a um primeiro projeto e a alguem que diga “vamos tentar juntos”.</p><p className="mt-6 border-l-2 border-coral pl-5 text-sm font-bold leading-6 text-ink/70">E por isso que a SouJunior existe: para diminuir a distancia entre vontade de aprender e oportunidade de praticar.</p></div></div></section>
-
-      {/* 04. Jornada: mostra o metodo em tres passos faceis de apresentar. */}
-      <section id="jornada" className="bg-mint px-5 py-24 lg:px-8 lg:py-32"><div className="mx-auto max-w-7xl"><div className="flex flex-col justify-between gap-6 md:flex-row md:items-end"><div><p className="eyebrow">03 / A jornada</p><h2 className="mt-5 max-w-xl text-4xl font-bold tracking-[-0.04em] md:text-5xl">Um caminho simples para sair do “ainda nao”.</h2></div><p className="max-w-xs text-sm leading-6 text-ink/60">Voce nao precisa chegar pronto. So precisa chegar disposto a construir.</p></div><div className="mt-14 grid gap-px overflow-hidden rounded-3xl border border-ink/10 bg-ink/10 md:grid-cols-3">{journey.map((step) => <article key={step.number} className="bg-mint p-7 transition hover:bg-paper md:p-9"><p className="font-mono text-sm text-coral">{step.number}</p><h3 className="mt-20 text-2xl font-bold tracking-tight">{step.title}</h3><p className="mt-4 text-sm leading-6 text-ink/60">{step.description}</p></article>)}</div></div></section>
-
-      {/* 05. Trilhas: apresenta as areas da comunidade como um pequeno produto. */}
-      <section id="trilhas" className="bg-paper px-5 py-24 lg:px-8 lg:py-32"><div className="mx-auto max-w-7xl"><p className="eyebrow">04 / Trilhas abertas</p><div className="mt-5 flex flex-col justify-between gap-6 md:flex-row md:items-end"><h2 className="max-w-2xl text-4xl font-bold tracking-[-0.04em] md:text-5xl">Escolha onde colocar a mao na massa.</h2><a href="#apoio" className="text-sm font-bold underline decoration-coral decoration-2 underline-offset-4">Ver como apoiar ↗</a></div><div className="mt-12 grid gap-5 lg:grid-cols-3">{tracks.map(([number, title, description, detail], index) => <article key={title} className={`group min-h-[320px] rounded-3xl p-7 ${index === 1 ? 'bg-ink text-white' : 'bg-white shadow-[0_12px_50px_rgba(25,35,32,0.06)]'}`}><div className="flex items-start justify-between"><span className="font-mono text-sm text-coral">{number}</span><span className="rounded-full border border-current/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] opacity-50">{detail}</span></div><div className="mt-24"><h3 className="text-2xl font-bold tracking-tight">{title}</h3><p className="mt-3 max-w-xs text-sm leading-6 opacity-60">{description}</p></div></article>)}</div></div></section>
-
-      {/* 06. Impacto: painel visual com dados faceis de substituir por dados reais. */}
-      <section id="impacto" className="bg-ink px-5 py-24 text-white lg:px-8 lg:py-32"><div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.8fr_1.2fr]"><div><p className="eyebrow text-coral">05 / O impacto</p><h2 className="mt-5 text-4xl font-bold tracking-[-0.04em] md:text-5xl">Pequenas evolucoes. Uma rede inteira crescendo.</h2><p className="mt-6 max-w-md text-base leading-7 text-white/55">Os numeros contam uma parte da historia. A outra esta em cada pessoa que encontrou coragem para publicar o primeiro projeto.</p></div><div className="grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 sm:grid-cols-4"><div className="bg-white/5 p-6 sm:col-span-2"><p className="text-5xl font-bold text-coral">15k</p><p className="mt-3 text-xs uppercase tracking-[0.15em] text-white/50">pessoas impactadas</p><div className="mt-12 h-1 rounded-full bg-white/10"><div className="h-full w-4/5 rounded-full bg-coral" /></div></div><div className="bg-white/5 p-6"><p className="text-3xl font-bold">50+</p><p className="mt-3 text-xs leading-5 text-white/50">projetos open-source</p></div><div className="bg-white/5 p-6"><p className="text-3xl font-bold">200+</p><p className="mt-3 text-xs leading-5 text-white/50">voluntarios</p></div><div className="bg-white/5 p-6 sm:col-span-2"><p className="text-3xl font-bold text-coral">100%</p><p className="mt-3 text-xs leading-5 text-white/50">foco em abrir caminhos</p></div><div className="bg-coral p-6 text-ink sm:col-span-2"><p className="text-sm font-bold leading-6">“Ninguem cresce sozinho.”</p><p className="mt-8 text-xs font-bold uppercase tracking-[0.12em] opacity-60">Principio SouJunior</p></div></div></div></section>
-
-      {/* 07. Vozes: depoimentos humanizam os resultados apresentados anteriormente. */}
-      <section className="bg-paper px-5 py-24 lg:px-8 lg:py-32"><div className="mx-auto max-w-7xl"><p className="eyebrow">06 / Quem vive</p><h2 className="mt-5 max-w-xl text-4xl font-bold tracking-[-0.04em] md:text-5xl">Nao e sobre assistir de fora.</h2><div className="mt-12 grid gap-5 md:grid-cols-2">{testimonials.map(([quote, name, role]) => <figure key={name} className="rounded-3xl bg-white p-8 shadow-[0_12px_50px_rgba(25,35,32,0.06)]"><blockquote className="text-2xl font-bold leading-tight tracking-tight">{quote}</blockquote><figcaption className="mt-16 flex items-center gap-3 text-sm"><span className="grid size-10 place-items-center rounded-full bg-mint font-bold">{name.split(' ').map((part) => part[0]).join('')}</span><span><strong className="block">{name}</strong><span className="text-ink/50">{role}</span></span></figcaption></figure>)}</div></div></section>
-
-      {/* 08. Apoio: transforma a narrativa em uma acao clara para o visitante. */}
-      <section id="apoio" className="bg-coral px-5 py-24 lg:px-8 lg:py-32"><div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_auto] lg:items-end"><div><p className="eyebrow">07 / Faca parte</p><h2 className="mt-5 max-w-3xl text-5xl font-bold leading-[0.98] tracking-[-0.05em] md:text-7xl">Seu apoio vira espaco para alguem comecar.</h2></div><a href="https://apoia.se/soujunior" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-full bg-ink px-7 py-4 text-sm font-bold text-white transition hover:-translate-y-1">Apoiar a SouJunior <span className="ml-3 text-coral">↗</span></a></div></section>
-
-      {/* 09. Duvidas: encerra objecoes antes da chamada final. */}
-      <section id="duvidas" className="bg-paper px-5 py-24 lg:px-8 lg:py-32"><div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.7fr_1.3fr]"><div><p className="eyebrow">08 / Duvidas</p><h2 className="mt-5 text-4xl font-bold tracking-[-0.04em] md:text-5xl">Pode perguntar.</h2><p className="mt-5 max-w-sm text-sm leading-6 text-ink/60">Um projeto acessivel tambem precisa ser transparente para quem esta chegando.</p></div><div className="divide-y divide-ink/10 border-y border-ink/10">{faqs.map(([question, answer]) => <details key={question} className="group py-6"><summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-bold">{question}<span className="text-2xl font-normal text-coral transition group-open:rotate-45">+</span></summary><p className="max-w-2xl pt-4 text-sm leading-6 text-ink/60">{answer}</p></details>)}</div></div></section>
-
-      {/* 10. Rodape: ultima chamada e canais oficiais da comunidade. */}
-      <footer className="bg-ink px-5 py-14 text-white lg:px-8"><div className="mx-auto max-w-7xl"><div className="flex flex-col justify-between gap-8 border-b border-white/10 pb-12 md:flex-row md:items-end"><div><p className="eyebrow text-coral">09 / Ate a proxima</p><h2 className="mt-5 max-w-xl text-4xl font-bold tracking-[-0.04em] md:text-5xl">A proxima historia pode ser a sua.</h2></div><a href="https://discord.gg/FkBcf3vdQZ" target="_blank" rel="noreferrer" className="rounded-full border border-white/20 px-6 py-3 text-sm font-bold transition hover:border-coral hover:text-coral">Entrar no Discord ↗</a></div><div className="flex flex-col justify-between gap-5 pt-7 text-xs text-white/45 sm:flex-row"><p>© 2026 SouJunior. Feito pela comunidade.</p><nav className="flex gap-5" aria-label="Canais da comunidade"><a href="https://chat.whatsapp.com/JJzCMlqMKlw1YOhOk7QB3W" target="_blank" rel="noreferrer" className="hover:text-white">WhatsApp</a><a href="https://github.com/SouJunior" target="_blank" rel="noreferrer" className="hover:text-white">GitHub</a><a href="#inicio" className="hover:text-white">Voltar ao topo ↑</a></nav></div></div></footer>
-    </main>
-  )
+      </footer>
+    </div>
+  );
 }
 
-export default App
+export default App;
