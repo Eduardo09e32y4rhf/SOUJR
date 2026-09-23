@@ -48,41 +48,49 @@ function App() {
       </header>
 
       <main>
-        <section id="inicio" className="section-shell grid gap-12 py-16 md:grid-cols-[1.1fr_0.9fr] md:items-center md:py-20">
+                <section id="inicio" className="section-shell grid gap-12 py-16 md:grid-cols-2 md:items-center md:py-24">
           <div>
-            <span className="mb-5 inline-flex rounded-full border border-coral/20 bg-coral/20 px-3 py-1 eyebrow text-coral">
-              Transformação social
-            </span>
-
-            <h1 className="max-w-xl text-4xl font-black leading-tight text-ink md:text-6xl">
-              O júnior de hoje transforma o amanhã.
+            <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-ink md:text-5xl mb-6">
+              O júnior de<br />hoje transforma<br />o amanhã.
             </h1>
 
-            <p className="mt-5 max-w-lg text-lg leading-8 text-ink/70">
+            <p className="mt-5 mb-8 max-w-md text-lg leading-7 text-ink/80 font-medium">
               A SouJúnior é uma comunidade que forma profissionais de tecnologia em início de carreira através de mentoria, projetos reais e um ambiente seguro pra aprender. Seu apoio mantém esse movimento vivo — e cresce junto com cada pessoa que ele impacta.
             </p>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="flex flex-wrap gap-4">
               <a
                 href="https://apoia.se/soujunior"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-ink px-6 py-3 text-base font-semibold text-white shadow-lg shadow-ink/20 transition hover:bg-ink/80"
+                className="bg-ink text-white px-6 py-3 rounded-full text-[14px] font-semibold hover:bg-ink/80 transition"
               >
                 Apoiar no Apoia.se
               </a>
               <a
                 href="#impacto"
-                className="inline-flex items-center justify-center rounded-full border border-transparent bg-coral px-6 py-3 text-base font-semibold text-ink transition hover:bg-coral/80"
+                className="bg-[#FFC700] text-ink px-6 py-3 rounded-full text-[14px] font-semibold hover:bg-[#FFC700]/80 transition"
               >
                 Conheça nosso impacto
               </a>
             </div>
           </div>
 
-          <div className="relative flex justify-center lg:justify-end">
-            <div className="flex h-64 w-full max-w-[320px] items-center justify-center rounded-3xl bg-paper/50 border-2 border-dashed border-ink/20 md:h-96 md:max-w-md lg:max-w-lg">
-              <span className="text-sm font-medium text-ink/40">Espaço para imagem (Mascote)</span>
+          <div className="relative flex justify-center md:justify-end">
+            {/* Simulação do Grafico e Mascote fornecido no HTML */}
+            <div className="relative w-80 h-80">
+                <div className="absolute top-0 right-12 w-40 h-40 bg-[#3b82f6] rounded-2xl"></div>
+                <div className="absolute top-20 right-32 w-16 h-16 bg-white rounded-lg shadow-lg flex items-center justify-center">
+                     <div className="w-8 h-8 bg-[#3b82f6] rounded-sm"></div>
+                </div>
+                <div className="absolute bottom-16 right-48 w-24 h-24 bg-[#3b82f6] rounded-xl"></div>
+                <div className="absolute bottom-12 right-24 w-16 h-16 bg-white rounded-lg shadow-lg flex items-center justify-center">
+                    <div className="w-8 h-8 bg-[#3b82f6] rounded-sm"></div>
+                </div>
+                {/* Mascote Placeholder HTML code adapted for react without the lucide script */}
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-blue-100 rounded-full flex items-center justify-center text-[#3b82f6] border-4 border-white shadow-xl z-10 font-bold text-xl">
+                    [Bot]
+                </div>
             </div>
           </div>
         </section>
@@ -210,6 +218,7 @@ function App() {
           <div className="mx-auto max-w-2xl text-center">
             <p className="eyebrow text-coral">Planos de apoio</p>
             <h2 className="mt-4 text-3xl font-black text-ink md:text-5xl">Escolha como apoiar</h2>
+            <p className="mt-4 text-lg text-ink/70">Cada nível oferece um retorno diferente — e todo apoio contribui para manter a SouJúnior funcionando.</p>
             <p className="mt-4 text-lg text-ink/70">Cada nível oferece um retorno diferente — e todo apoio contribui para manter a SouJúnior funcionando.</p>
           </div>
 
