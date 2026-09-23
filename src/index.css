@@ -41,7 +41,8 @@ a {
 }
 
 /* Estilo repetido dos marcadores de categoria das seções. */
-.eyebrow {
+@utility eyebrow {
+
   color: rgb(23 33 31 / 0.5);
   font-size: 0.7rem;
   font-weight: 700;
