@@ -55,3 +55,14 @@ a {
   outline: 3px solid #f26f51;
   outline-offset: 4px;
 }
+@utility section-shell {
+  padding-inline: 1.5rem;
+  max-width: 80rem;
+  margin-inline: auto;
+  @media (min-width: 768px) {
+    padding-inline: 3rem;
+  }
+  @media (min-width: 1024px) {
+    padding-inline: 5rem;
+  }
+}

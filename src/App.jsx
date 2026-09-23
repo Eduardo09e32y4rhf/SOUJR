@@ -34,16 +34,16 @@ const planos = [
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#f5f4ef] text-slate-800">
-      <header className="border-b border-slate-200 bg-[#f5f4ef]/90 backdrop-blur-sm">
-        <div className="section-shell flex items-center justify-between py-4">
+    <div className="min-h-screen bg-paper text-ink/90">
+      <header className="border-b border-ink/10 bg-paper/90 backdrop-blur-sm">
+        <div className="section-shell  flex items-center justify-between py-4">
           <a href="#inicio" className="flex items-center gap-3" aria-label="Página inicial">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-900 text-base font-bold text-white">
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-ink text-base font-bold text-white">
               SJ
             </div>
             <div>
-              <div className="text-[10px] font-bold uppercase tracking-[0.25em] text-amber-700">SOUJR</div>
-              <div className="text-sm text-slate-600">Ação e transformação</div>
+              <div className="text-[10px] font-bold uppercase tracking-[0.25em] text-coral">SOUJR</div>
+              <div className="text-sm text-ink/70">Ação e transformação</div>
             </div>
           </a>
 
@@ -52,7 +52,7 @@ function App() {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-sm font-medium text-slate-700 transition hover:text-slate-950"
+                className="text-sm font-medium text-ink/80 transition hover:text-slate-950"
               >
                 {item.label}
               </a>
@@ -61,7 +61,7 @@ function App() {
 
           <a
             href="#apoio"
-            className="inline-flex items-center justify-center rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-700"
+            className="inline-flex items-center justify-center rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-ink/80"
           >
             Apoie agora
           </a>
@@ -69,30 +69,30 @@ function App() {
       </header>
 
       <main>
-        <section id="inicio" className="section-shell grid gap-12 py-16 md:grid-cols-[1.1fr_0.9fr] md:items-center md:py-20">
+        <section id="inicio" className="section-shell  grid gap-12 py-16 md:grid-cols-[1.1fr_0.9fr] md:items-center md:py-20">
           <div>
-            <span className="mb-5 inline-flex rounded-full border border-amber-200 bg-amber-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-800">
+            <span className="mb-5 inline-flex rounded-full border border-coral/20 bg-coral/20 px-3 py-1 eyebrow text-coral">
               Transformação social
             </span>
 
-            <h1 className="max-w-xl text-4xl font-black leading-tight text-slate-900 md:text-6xl">
+            <h1 className="max-w-xl text-4xl font-black leading-tight text-ink md:text-6xl">
               A força da comunidade em favor de quem precisa.
             </h1>
 
-            <p className="mt-5 max-w-lg text-lg leading-8 text-slate-600">
+            <p className="mt-5 max-w-lg text-lg leading-8 text-ink/70">
               A SOUJR conecta pessoas, ideias e apoio para transformar realidades e gerar impacto em ações sociais, educação e fortalecimento comunitário.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#causa"
-                className="inline-flex items-center justify-center rounded-full bg-amber-500 px-6 py-3 text-base font-semibold text-slate-900 shadow-lg shadow-amber-200 transition hover:bg-amber-400"
+                className="inline-flex items-center justify-center rounded-full bg-coral/100 px-6 py-3 text-base font-semibold text-ink shadow-lg shadow-coral/20 transition hover:bg-coral/80"
               >
                 Conheça a causa
               </a>
               <a
                 href="#apoio"
-                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-base font-semibold text-slate-800 transition hover:border-slate-400 hover:bg-slate-50"
+                className="inline-flex items-center justify-center rounded-full border border-ink/20 bg-white px-6 py-3 text-base font-semibold text-ink/90 transition hover:border-ink/30 hover:bg-paper/50"
               >
                 Seja apoiador
               </a>
@@ -100,13 +100,13 @@ function App() {
           </div>
 
           <div className="relative">
-            <div className="absolute -left-8 top-10 h-36 w-36 rounded-full bg-amber-300/40 blur-3xl" aria-hidden="true" />
-            <div className="absolute -right-6 bottom-6 h-36 w-36 rounded-full bg-emerald-300/40 blur-3xl" aria-hidden="true" />
+            <div className="absolute -left-8 top-10 h-36 w-36 rounded-full bg-coral/40 blur-3xl" aria-hidden="true" />
+            <div className="absolute -right-6 bottom-6 h-36 w-36 rounded-full bg-mint/40 blur-3xl" aria-hidden="true" />
 
-            <div className="relative rounded-[28px] border border-slate-200 bg-white p-5 shadow-[0_24px_80px_rgba(15,23,42,0.08)]">
-              <div className="rounded-[24px] bg-gradient-to-br from-slate-900 via-slate-800 to-amber-500 p-6 text-white">
+            <div className="relative rounded-[28px] border border-ink/10 bg-white p-5 shadow-[0_24px_80px_rgba(15,23,42,0.08)]">
+              <div className="rounded-[24px] bg-gradient-to-br from-ink via-ink/90 to-coral p-6 text-white">
                 <div className="flex items-center justify-between gap-4">
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-amber-200">
+                  <span className="eyebrow text-coral/80">
                     Impacto em ação
                   </span>
                   <span className="rounded-full bg-white/10 px-2 py-1 text-[10px] font-medium text-white/90">
@@ -115,16 +115,16 @@ function App() {
                 </div>
 
                 <div className="mt-10">
-                  <p className="text-sm uppercase tracking-[0.2em] text-slate-200">Metas em curso</p>
+                  <p className="text-sm uppercase tracking-[0.2em] text-paper/80">Metas em curso</p>
                   <p className="mt-3 text-4xl font-black">+350</p>
-                  <p className="mt-2 text-sm text-slate-200">ações e iniciativas em mobilização</p>
+                  <p className="mt-2 text-sm text-paper/80">ações e iniciativas em mobilização</p>
                 </div>
 
                 <div className="mt-8 grid gap-3 sm:grid-cols-3">
                   {stats.map((item) => (
                     <div key={item.label} className="rounded-2xl bg-white/8 p-3">
-                      <p className="text-xl font-black text-amber-200">{item.value}</p>
-                      <p className="mt-1 text-[10px] leading-4 text-slate-200">{item.label}</p>
+                      <p className="text-xl font-black text-coral/80">{item.value}</p>
+                      <p className="mt-1 text-[10px] leading-4 text-paper/80">{item.label}</p>
                     </div>
                   ))}
                 </div>
@@ -133,37 +133,37 @@ function App() {
           </div>
         </section>
 
-        <section id="causa" className="bg-white py-20">
-          <div className="section-shell">
+        <section id="causa" className="bg-white py-12 md:py-20">
+          <div className="section-shell ">
             <div className="mx-auto max-w-2xl text-center">
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-700">Nossa causa</p>
-              <h2 className="mt-4 text-3xl font-black text-slate-900 md:text-5xl">
+              <p className="eyebrow text-coral">Nossa causa</p>
+              <h2 className="mt-4 text-3xl font-black text-ink md:text-5xl">
                 Mais acesso, mais oportunidades e mais dignidade.
               </h2>
             </div>
 
             <div className="mt-12 grid gap-6 md:grid-cols-3">
               {cards.map((item) => (
-                <article key={item.title} className="rounded-[28px] border border-slate-200 bg-slate-50 p-7">
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-xl font-bold text-amber-700">
+                <article key={item.title} className="rounded-[28px] border border-ink/10 bg-paper/50 p-7">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-coral/20 text-xl font-bold text-coral">
                     •
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900">{item.title}</h3>
-                  <p className="mt-4 text-base leading-7 text-slate-600">{item.text}</p>
+                  <h3 className="text-2xl font-bold text-ink">{item.title}</h3>
+                  <p className="mt-4 text-base leading-7 text-ink/70">{item.text}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="impacto" className="section-shell py-20">
+        <section id="impacto" className="section-shell  py-12 md:py-20">
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-700">Impacto</p>
-              <h2 className="mt-4 text-3xl font-black text-slate-900 md:text-5xl">
+              <p className="eyebrow text-coral">Impacto</p>
+              <h2 className="mt-4 text-3xl font-black text-ink md:text-5xl">
                 Resultados construídos com presença real.
               </h2>
-              <p className="mt-5 text-lg leading-8 text-slate-600">
+              <p className="mt-5 text-lg leading-8 text-ink/70">
                 A SOUJR atua para fortalecer comunidades, ampliar oportunidades e criar caminhos de acolhimento e transformação.
               </p>
             </div>
@@ -175,19 +175,19 @@ function App() {
                 ['40', 'parcerias ativas'],
                 ['14', 'campanhas realizadas'],
               ].map(([value, label]) => (
-                <div key={label} className="rounded-[26px] border border-slate-200 bg-white p-6 shadow-sm">
-                  <p className="text-4xl font-black text-slate-900">{value}</p>
-                  <p className="mt-2 text-sm uppercase tracking-[0.12em] text-slate-500">{label}</p>
+                <div key={label} className="rounded-[26px] border border-ink/10 bg-white p-6 shadow-sm">
+                  <p className="text-4xl font-black text-ink">{value}</p>
+                  <p className="mt-2 text-sm uppercase tracking-[0.12em] text-ink/60">{label}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="transparencia" className="bg-slate-900 py-20 text-white">
-          <div className="section-shell">
+        <section id="transparencia" className="bg-ink py-12 md:py-20 text-white">
+          <div className="section-shell ">
             <div className="mx-auto max-w-3xl text-center">
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-300">Transparência</p>
+              <p className="eyebrow text-coral">Transparência</p>
               <h2 className="mt-4 text-3xl font-black md:text-5xl">Acompanhamento claro em cada etapa.</h2>
             </div>
 
@@ -199,17 +199,17 @@ function App() {
               ].map(([title, text]) => (
                 <div key={title} className="rounded-[28px] border border-white/10 bg-white/5 p-7">
                   <h3 className="text-2xl font-bold">{title}</h3>
-                  <p className="mt-4 text-base leading-7 text-slate-300">{text}</p>
+                  <p className="mt-4 text-base leading-7 text-white/70">{text}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="apoio" className="section-shell py-20">
+        <section id="apoio" className="section-shell  py-12 md:py-20">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-700">Planos de apoio</p>
-            <h2 className="mt-4 text-3xl font-black text-slate-900 md:text-5xl">Escolha um jeito de apoiar.</h2>
+            <p className="eyebrow text-coral">Planos de apoio</p>
+            <h2 className="mt-4 text-3xl font-black text-ink md:text-5xl">Escolha um jeito de apoiar.</h2>
           </div>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
@@ -218,32 +218,32 @@ function App() {
                 key={plan.name}
                 className={[
                   'rounded-[30px] border p-7 shadow-sm',
-                  plan.featured ? 'border-amber-300 bg-amber-50' : 'border-slate-200 bg-white',
+                  plan.featured ? 'border-coral/40 bg-coral/10' : 'border-ink/10 bg-white',
                 ].join(' ')}
               >
                 <div className="flex items-center justify-between gap-3">
-                  <h3 className="text-2xl font-bold text-slate-900">{plan.name}</h3>
+                  <h3 className="text-2xl font-bold text-ink">{plan.name}</h3>
                   {plan.featured && (
-                    <span className="rounded-full bg-amber-500 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-900">
+                    <span className="rounded-full bg-coral/100 px-2.5 py-1 eyebrow text-ink">
                       Popular
                     </span>
                   )}
                 </div>
 
                 <div className="mt-6 flex items-end gap-2">
-                  <span className="text-4xl font-black text-slate-900">{plan.price}</span>
-                  <span className="pb-1 text-sm text-slate-500">/mês</span>
+                  <span className="text-4xl font-black text-ink">{plan.price}</span>
+                  <span className="pb-1 text-sm text-ink/60">/mês</span>
                 </div>
 
-                <p className="mt-5 text-base leading-7 text-slate-600">{plan.description}</p>
+                <p className="mt-5 text-base leading-7 text-ink/70">{plan.description}</p>
 
                 <a
                   href="#contato"
                   className={[
                     'mt-8 inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-base font-semibold transition',
                     plan.featured
-                      ? 'bg-slate-900 text-white hover:bg-slate-700'
-                      : 'border border-slate-300 bg-white text-slate-800 hover:bg-slate-50',
+                      ? 'bg-ink text-white hover:bg-ink/80'
+                      : 'border border-ink/20 bg-white text-ink/90 hover:bg-paper/50',
                   ].join(' ')}
                 >
                   Escolher plano
@@ -254,18 +254,18 @@ function App() {
         </section>
       </main>
 
-      <footer id="contato" className="border-t border-slate-200 bg-[#f5f4ef]">
-        <div className="section-shell flex flex-col gap-6 py-10 md:flex-row md:items-center md:justify-between">
+      <footer id="contato" className="border-t border-ink/10 bg-paper">
+        <div className="section-shell  flex flex-col gap-6 py-10 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-700">SOUJR</p>
-            <p className="mt-2 max-w-md text-slate-600">Apoiar ações que ampliam oportunidades, fortalecimento e transformação social.</p>
+            <p className="eyebrow text-coral">SOUJR</p>
+            <p className="mt-2 max-w-md text-ink/70">Apoiar ações que ampliam oportunidades, fortalecimento e transformação social.</p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 text-sm font-medium text-slate-600">
-            <a href="#causa" className="transition hover:text-slate-900">Causa</a>
-            <a href="#impacto" className="transition hover:text-slate-900">Impacto</a>
-            <a href="#transparencia" className="transition hover:text-slate-900">Transparência</a>
-            <a href="#apoio" className="transition hover:text-slate-900">Apoio</a>
+          <div className="flex flex-wrap items-center gap-4 text-sm font-medium text-ink/70">
+            <a href="#causa" className="transition hover:text-ink">Causa</a>
+            <a href="#impacto" className="transition hover:text-ink">Impacto</a>
+            <a href="#transparencia" className="transition hover:text-ink">Transparência</a>
+            <a href="#apoio" className="transition hover:text-ink">Apoio</a>
           </div>
         </div>
       </footer>
