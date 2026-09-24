@@ -2,7 +2,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #6366f1;
+  --color-primary: #3b82f6;
   --color-secondary: #facc15;
   --color-dark: #0f0f0f;
   --color-light: #ffffff;
@@ -44,4 +44,19 @@ a {
   @media (min-width: 1024px) {
     padding-inline: 5rem;
   }
+}
+
+/* Utilitários de Efeito Visual (Mockup Novo) */
+@utility radial-glow-blue {
+  background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.15) 0%, transparent 60%);
+}
+
+@utility radial-glow-yellow {
+  background: radial-gradient(circle at center left, rgba(250, 204, 21, 0.15) 0%, transparent 60%);
+}
+
+/* Garante que imagens nunca passem do tamanho da tela */
+img {
+  max-width: 100%;
+  height: auto;
 }
